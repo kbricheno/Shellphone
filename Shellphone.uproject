@@ -20,6 +20,14 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "PhysicsControl",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimatorKit",
+			"Enabled": true
 		}
 	]
 }

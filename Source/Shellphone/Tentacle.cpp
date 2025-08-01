@@ -29,5 +29,8 @@ void ATentacle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//UE_LOG(LogTemp, Warning, TEXT("tippos.y = %f"), tipPos.Y);
+	//UE_LOG(LogTemp, Warning, TEXT("tippos.z = %f"), tipPos.Z);
+	Mesh->SetWorldLocation(tipPos);
 }
 

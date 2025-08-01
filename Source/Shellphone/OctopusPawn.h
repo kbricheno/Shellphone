@@ -5,10 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "InputAction.h"
+#include "Kismet/GameplayStatics.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "UnrealClient.h"
 #include "Tentacle.h"
+#include "Pin.h"
 #include "OctopusPawn.generated.h"
 
 class UInputMappingContext;
@@ -47,11 +49,17 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UInputAction* InteractAction;
 
-
-	void Move(const FInputActionValue& Value);
-
 	void Interact(const FInputActionValue& Value);
 
-	TArray<ATentacle*> allTentacles;
-	ATentacle* currentTentacle = nullptr;
+	UPROPERTY(EditAnywhere)
+	TArray<ATentacle*> m_allTentacles;
+
+	UPROPERTY(EditAnywhere)
+	float tentacleHoverDepth;
+
+private:
+	void LockTentacle();
+	void ReleaseTentacle(ATentacle* newTentacle);
+
+	ATentacle* m_currentTentacle = nullptr;
 };

@@ -30,16 +30,15 @@ public:
 	UPROPERTY(EditAnywhere)
 	USkeletalMeshComponent* Mesh;
 
-
-	UPROPERTY(VisibleAnywhere)
-	bool isInUse = false;
-
-	UPROPERTY(VisibleAnywhere)
-	FVector2D tipPos;
-
-	UPROPERTY(VisibleAnywhere)
-	float tipDepth = 0;
-
 	UPROPERTY(EditAnywhere)
 	FVector rootPos = { 0.f, 0.f, 0.f };
+
+	void UpdateTentacleTipPos(FVector newPos) { tipPos = newPos; }
+
+	bool CheckIsFree() const { return isFree; }
+	void SetIsFree(bool free) { isFree = free; }
+
+private:
+	bool isFree = true;
+	FVector tipPos;
 };
